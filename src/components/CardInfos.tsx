@@ -48,12 +48,14 @@ export function CardInfo() {
                 <p className='text-xl font-bold text-base-title'>
                   {userData.name}
                 </p>
-                <p className='flex items-center gap-2 text-base-blue font-bold text-xs'>
-                  <a href={`https://${userData.url}`} target='_blank'>
-                    GITHUB
-                  </a>
+                <a
+                  href={`https://${userData.url}`}
+                  target='_blank'
+                  className='flex items-center gap-2 text-base-blue font-bold text-xs hover:border-b-base-blue hover:border-b'
+                >
+                  GITHUB
                   <FaArrowUpRightFromSquare />
-                </p>
+                </a>
               </div>
               <p className='text-base-text'>{userData.bio}</p>
             </div>
