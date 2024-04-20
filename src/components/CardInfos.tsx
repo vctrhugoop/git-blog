@@ -40,7 +40,7 @@ export function CardInfo() {
   return (
     <div>
       {userData ? (
-        <div className='max-w-4xl mx-auto w-full bg-base-profile -mt-20 flex px-10 py-8 gap-8 rounded-lg items-start'>
+        <div className='max-w-4xl mx-auto w-full bg-base-profile -mt-20 flex px-8 py-8 gap-8 rounded-lg items-start md:px-10'>
           <img src={userData.avatar_url} className='size-36 rounded-lg' />
           <div className='flex flex-col justify-between gap-10'>
             <div className='space-y-2'>
