@@ -1,55 +1,27 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-
 import {
   FaArrowUpRightFromSquare,
   FaGithub,
   FaLink,
   FaUserGroup,
 } from 'react-icons/fa6';
-
-interface UserData {
-  name: string;
-  login: string;
-  bio: string;
-  blog: string;
-  url: string;
-  followers: number;
-  avatar_url: string;
-}
+import { useGitHubData } from '../hooks/useGitHubData';
 
 export function CardInfo() {
-  const [userData, setUserData] = useState<UserData | null>(null);
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(
-          'https://api.github.com/users/vctrhugoop',
-        );
-
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar dados do usuário:', error);
-      }
-    };
-
-    fetchUserData();
-  }, []);
+  const { userInfo } = useGitHubData();
 
   return (
     <div>
-      {userData ? (
+      {userInfo ? (
         <div className='max-w-4xl mx-auto w-full bg-base-profile -mt-20 flex px-8 py-8 gap-8 rounded-lg items-start md:px-10'>
-          <img src={userData.avatar_url} className='size-36 rounded-lg' />
+          <img src={userInfo.avatar_url} className='size-36 rounded-lg' />
           <div className='flex flex-col justify-between gap-10'>
             <div className='space-y-2'>
               <div className='flex justify-between '>
                 <p className='text-xl font-bold text-base-title'>
-                  {userData.name}
+                  {userInfo.name}
                 </p>
                 <a
-                  href={`https://${userData.url}`}
+                  href={`https://${userInfo.url}`}
                   target='_blank'
                   className='flex items-center gap-2 text-base-blue font-bold text-xs hover:border-b-base-blue hover:border-b'
                 >
@@ -57,28 +29,28 @@ export function CardInfo() {
                   <FaArrowUpRightFromSquare />
                 </a>
               </div>
-              <p className='text-base-text'>{userData.bio}</p>
+              <p className='text-base-text'>{userInfo.bio}</p>
             </div>
 
             <div className='flex flex-col md:flex-row md:gap-6'>
               <p className='flex items-center gap-2 text-base-subtitle'>
                 <FaGithub className='text-base-label' />
-                {userData.login}
+                {userInfo.login}
               </p>
               <p className='flex items-center gap-2'>
                 <FaLink className='text-base-label' />
                 <a
-                  href={`https://${userData.blog}`}
+                  href={`https://${userInfo.blog}`}
                   target='_blank'
                   className='text-base-subtitle'
                 >
-                  {userData.blog}
+                  {userInfo.blog}
                 </a>
               </p>
 
               <p className='flex items-center gap-2 text-base-subtitle'>
                 <FaUserGroup className='text-base-label' />
-                {userData.followers} seguidores
+                {userInfo.followers} seguidores
               </p>
             </div>
           </div>
