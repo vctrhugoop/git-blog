@@ -11,15 +11,20 @@ export function CardInfo() {
 
   return (
     <div>
-      {userInfo ? (
-        <div className='max-w-4xl mx-auto w-full bg-base-profile -mt-20 flex px-8 py-8 gap-8 rounded-lg items-start md:px-10'>
-          <img src={userInfo.avatar_url} className='size-36 rounded-lg' />
-          <div className='flex flex-col justify-between gap-10'>
+      {userInfo && (
+        <div className='max-w-4xl mx-auto w-full bg-base-profile md:-mt-20 mt-4 flex flex-col px-8 py-8 gap-8 rounded-lg md:px-10 md:flex-row'>
+          <div className='w-full h-36 lg:w-2/6 md:w-2/4'>
+            <img
+              src={userInfo.avatar_url}
+              className='rounded-lg h-36 object-cover w-full md:object-fill md:w-36'
+            />
+          </div>
+          <div className='gap-8 md:gap-0  flex flex-col justify-between md:h-36'>
             <div className='space-y-2'>
               <div className='flex justify-between '>
-                <p className='text-xl font-bold text-base-title'>
+                <h1 className='text-xl font-bold text-base-title'>
                   {userInfo.name}
-                </p>
+                </h1>
                 <a
                   href={`https://${userInfo.url}`}
                   target='_blank'
@@ -31,13 +36,12 @@ export function CardInfo() {
               </div>
               <p className='text-base-text'>{userInfo.bio}</p>
             </div>
-
             <div className='flex flex-col md:flex-row md:gap-6'>
-              <p className='flex items-center gap-2 text-base-subtitle'>
+              <span className='flex items-center gap-2 text-base-subtitle'>
                 <FaGithub className='text-base-label' />
                 {userInfo.login}
-              </p>
-              <p className='flex items-center gap-2'>
+              </span>
+              <span className='flex items-center gap-2'>
                 <FaLink className='text-base-label' />
                 <a
                   href={`https://${userInfo.blog}`}
@@ -46,17 +50,15 @@ export function CardInfo() {
                 >
                   {userInfo.blog}
                 </a>
-              </p>
+              </span>
 
-              <p className='flex items-center gap-2 text-base-subtitle'>
+              <span className='flex items-center gap-2 text-base-subtitle'>
                 <FaUserGroup className='text-base-label' />
                 {userInfo.followers} seguidores
-              </p>
+              </span>
             </div>
           </div>
         </div>
-      ) : (
-        <p>Carregando...</p>
       )}
     </div>
   );
