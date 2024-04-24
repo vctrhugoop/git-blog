@@ -4,6 +4,8 @@ import { api } from '../lib/api';
 interface GitHubDataContextProps {
   userInfo: UserInfo | null;
   issuesInfo: IssuesInfo[] | null;
+
+  getIssuesByNumber: (number: number) => Promise<IssuesInfo>;
 }
 
 interface GitHubDataContextProviderProps {
@@ -19,12 +21,13 @@ interface UserInfo {
   followers: number;
   avatar_url: string;
 }
-interface IssuesInfo {
+export interface IssuesInfo {
   id: number;
   title: string;
   body: string;
   created_at: string;
   comments: number;
+  number: number;
 }
 
 export const GitHubDataContext = createContext({} as GitHubDataContextProps);
@@ -44,6 +47,14 @@ export function GitHubDataContextProvider({
   async function getIssuesInfo() {
     const { data } = await api.get<IssuesInfo[]>(
       `/repos/vctrhugoop/git-blog/issues`,
+    );
+
+    return data;
+  }
+
+  async function getIssuesByNumber(number: number) {
+    const { data } = await api.get<IssuesInfo>(
+      `/repos/vctrhugoop/git-blog/issues/${number}`,
     );
 
     return data;
@@ -70,7 +81,9 @@ export function GitHubDataContextProvider({
   }, []);
 
   return (
-    <GitHubDataContext.Provider value={{ userInfo, issuesInfo }}>
+    <GitHubDataContext.Provider
+      value={{ userInfo, issuesInfo, getIssuesByNumber }}
+    >
       {children}
     </GitHubDataContext.Provider>
   );
