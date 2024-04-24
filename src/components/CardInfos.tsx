@@ -1,10 +1,6 @@
-import {
-  FaArrowUpRightFromSquare,
-  FaGithub,
-  FaLink,
-  FaUserGroup,
-} from 'react-icons/fa6';
+import { FaGithub, FaLink, FaUserGroup } from 'react-icons/fa6';
 import { useGitHubData } from '../hooks/useGitHubData';
+import { Links } from './Links';
 
 export function CardInfo() {
   const { userInfo } = useGitHubData();
@@ -25,14 +21,7 @@ export function CardInfo() {
                 <h1 className='text-xl font-bold text-base-title'>
                   {userInfo.name}
                 </h1>
-                <a
-                  href={`https://${userInfo.url}`}
-                  target='_blank'
-                  className='flex items-center gap-2 text-base-blue font-bold text-xs hover:border-b-base-blue hover:border-b'
-                >
-                  GITHUB
-                  <FaArrowUpRightFromSquare />
-                </a>
+                <Links url={userInfo.html_url} />
               </div>
               <p className='text-base-text'>{userInfo.bio}</p>
             </div>
