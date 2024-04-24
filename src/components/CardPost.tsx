@@ -15,8 +15,8 @@ export function CardPost() {
             className='bg-base-post rounded-lg p-8 overflow-hidden space-y-5 border-base-post border-2 hover:border-base-border'
             to={`/issues/${issue.number}`}
           >
-            <div className='flex justify-between'>
-              <h3 className='text-xl font-bold text-base-title w-64'>
+            <div className=''>
+              <h3 className='text-xl font-bold text-base-title'>
                 {issue.title}
               </h3>
               <small className='text-sm text-base-span'>
