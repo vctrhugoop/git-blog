@@ -17,7 +17,7 @@ interface UserInfo {
   login: string;
   bio: string;
   blog: string;
-  url: string;
+  html_url: string;
   followers: number;
   avatar_url: string;
 }
