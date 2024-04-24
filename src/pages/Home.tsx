@@ -1,5 +1,5 @@
-import { CardInfo } from '../components/CardInfos';
-import { CardPost } from '../components/CardPost';
+import { CardIssues } from '../components/CardIssues';
+import { Profile } from '../components/Profile';
 import { useGitHubData } from '../hooks/useGitHubData';
 
 export function Home() {
@@ -7,7 +7,7 @@ export function Home() {
 
   return (
     <section className='px-4 max-w-4xl mx-auto w-full pb-9'>
-      <CardInfo />
+      <Profile />
 
       <main className='mt-[72px]'>
         <div className='flex items-center justify-between'>
@@ -24,7 +24,7 @@ export function Home() {
         />
 
         <section className='mt-12'>
-          <CardPost />
+          <CardIssues />
         </section>
       </main>
     </section>

@@ -7,7 +7,7 @@ import {
 import { useGitHubData } from '../hooks/useGitHubData';
 import { Links } from './Links';
 
-export function CardInfo() {
+export function Profile() {
   const { userInfo } = useGitHubData();
 
   return (

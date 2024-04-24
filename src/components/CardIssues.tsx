@@ -3,7 +3,7 @@ import { ptBR } from 'date-fns/locale';
 import { Link } from 'react-router-dom';
 import { useGitHubData } from '../hooks/useGitHubData';
 
-export function CardPost() {
+export function CardIssues() {
   const { issuesInfo } = useGitHubData();
 
   return (
