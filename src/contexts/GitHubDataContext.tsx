@@ -25,9 +25,13 @@ export interface IssuesInfo {
   id: number;
   title: string;
   body: string;
+  html_url: string;
   created_at: string;
   comments: number;
   number: number;
+  user: {
+    login: string;
+  };
 }
 
 export const GitHubDataContext = createContext({} as GitHubDataContextProps);
