@@ -26,7 +26,7 @@ export function Profile() {
                 <h1 className='text-xl font-bold text-base-title'>
                   {userInfo.name}
                 </h1>
-                <Links url={userInfo.html_url}>
+                <Links to={userInfo.html_url} target='_blank'>
                   GITHUB
                   <FaArrowUpRightFromSquare />
                 </Links>
