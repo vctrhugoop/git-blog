@@ -1,0 +1,33 @@
+.markdown {
+  li,
+  h1,
+  h2,
+  h3,
+  span,
+  a,
+  p {
+    margin-bottom: 1rem;
+  }
+  h1 {
+    color: #3294f8;
+    font-size: 1.5rem;
+  }
+  h2,
+  h3 {
+    color: #3294f8;
+    font-size: 1.2rem;
+  }
+  code {
+    color: #c4d4e3;
+    border-radius: 2px;
+    text-wrap: wrap;
+  }
+  pre > code {
+    display: block;
+    background-color: #112131;
+
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 2px;
+  }
+}

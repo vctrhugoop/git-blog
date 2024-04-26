@@ -43,7 +43,7 @@ export function Profile() {
                 <a
                   href={`https://${userInfo.blog}`}
                   target='_blank'
-                  className='text-base-subtitle'
+                  className='text-base-subtitle p-0'
                 >
                   {userInfo.blog}
                 </a>
