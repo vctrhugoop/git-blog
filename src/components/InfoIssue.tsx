@@ -21,7 +21,7 @@ export function InfoIssue({ issueInfo }: InfoIssueProps) {
   const { html_url, title, user, created_at, comments } = issueInfo;
 
   return (
-    <div className='max-w-4xl mx-auto w-full space-y-5 bg-base-profile md:-mt-20 mt-4 px-8 py-8 gap-8 rounded-lg md:px-10 md:flex-row'>
+    <header className='max-w-4xl mx-auto w-full space-y-5 bg-base-profile md:-mt-20 mt-4 px-8 py-8 gap-8 rounded-lg md:px-10 md:flex-row'>
       <div className='flex items-center justify-between'>
         <Links to='/'>
           <FaChevronLeft />
@@ -34,7 +34,7 @@ export function InfoIssue({ issueInfo }: InfoIssueProps) {
       </div>
       <div className='space-y-2'>
         <h3 className='text-2xl font-bold text-base-title'>{title}</h3>
-        <div className='flex items-center gap-6 text-xs'>
+        <div className='flex items-center gap-6 text-xs md:text-base'>
           <span className='flex items-center gap-2 text-base-span'>
             <FaGithub className='text-base-label' />
             {user?.login}
@@ -54,6 +54,6 @@ export function InfoIssue({ issueInfo }: InfoIssueProps) {
           </span>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
