@@ -1,15 +1,17 @@
 import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { Link } from 'react-router-dom';
-import { useGitHubData } from '../hooks/useGitHubData';
+import { IssuesInfo } from '../contexts/GitHubDataContext';
 
-export function CardIssues() {
-  const { issuesInfo } = useGitHubData();
+interface CardIssuesProps {
+  filteredIssues: IssuesInfo[];
+}
 
+export function CardIssues({ filteredIssues }: CardIssuesProps) {
   return (
     <div className='grid gap-8 w-full md:grid-cols-2'>
-      {issuesInfo &&
-        issuesInfo.map((issue) => (
+      {filteredIssues &&
+        filteredIssues.map((issue) => (
           <Link
             key={issue.id}
             className='bg-base-post rounded-lg p-8 overflow-hidden space-y-5 border-base-post border-2 hover:border-base-border'
